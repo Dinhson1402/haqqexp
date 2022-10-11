@@ -1,0 +1,28 @@
+body{
+    background-color: aqua;
+}
+.container{
+    background-color: beige;
+}
+.brd{
+    border: 1px solid #000;
+}
+.clip {
+    /*white-space: normal;*/ /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+.textac{
+    text-align: center;
+    padding: 8px 0;
+}
+.seriy{
+    background-color: lightgray;
+    padding: 7px;
+}
+h6{
+    color: blueviolet !important;
+}
+a:hover{
+    text-decoration: none !important;
+}
