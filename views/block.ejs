@@ -1,0 +1,42 @@
+  <%- include('header') %>
+  <div class="row">
+    <div class="col-12"><h5>Blocks:</h5></div>
+  </div>
+  <div class="row" id="lastblock">
+    <div class="col-12"></div>
+  </div>
+  <div class="row"  id="list">
+  </div>
+</div>
+<script>
+  let timerId = setInterval(() => load(), 2000);//5800
+  const ul = document.getElementById('list');
+      function load(){
+        var url = 'https://haqq.api.explorers.guru/api/blocks'
+        fetch(url)
+          .then(function(response){
+            return response.json()
+          })
+          .then(function(data){
+            var last = false;
+            var element=document.getElementById('last');
+            if(!element){console.log('меня нет на странице'); last = true} 
+            else {
+              last = document.getElementById('last').innerHTML
+              last = parseInt(last)
+            }
+            var html = '<div class="col-12 col-md-1 col-sm-6 brd seriy">'+ data[0].height +'</div><div class="col-12 col-md-3 col-sm-6 brd">'+ data[0].proposer.moniker +'</div><div class="col-12 col-md-5 col-sm-6 brd clip">'+ data[0].hash +'</div><div class="col-12 col-md-3 col-sm-6 brd">'+ data[0].time +'</div>'
+            
+            if((last === true) || (last != data[0].height)){
+              ul.insertAdjacentHTML('afterbegin',html)
+            }
+            document.getElementById('lastblock').innerHTML = '<div id="last" class="col-12" style="visibility: hidden">' + data[0].height + '</div>';
+            //console.log('Data', data[0])
+          })
+      }
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
