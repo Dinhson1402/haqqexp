@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAQQ Explorer</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="app">
+            <h1 style="color: #1c6f92;"><a href="\"> HAQQ Explorer</a></h1>            
+        </div>
+        <form action="/tx" method="post" class="mainform">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="TX/Wallet 64 or 43 characters" pattern = "[A-z0-9]{43,64}" aria-label="TX/Wallete" aria-describedby="basic-addon2" id="tx" name="tx">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </div>
+        </form> 
+        <p><a href="/active">Active</a>   |    <a href="/inactive">Inactive</a>  |    <a href="/block">Last Block</a></p>
